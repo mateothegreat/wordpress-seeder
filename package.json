@@ -25,15 +25,13 @@
     "bin": {
         "seed": "./bin/seed"
     },
-    "devDependencies": {
+    "dependencies": {
         "@types/commander": "^2.12.2",
         "@types/faker": "^5.5.9",
         "@types/node": "^17.0.0",
         "@types/wpapi": "^1.1.1",
         "nodemon": "^2.0.15",
-        "typescript": "^4.5.4"
-    },
-    "dependencies": {
+        "typescript": "^4.5.4",
         "commander": "^8.3.0",
         "dotenv": "^10.0.0",
         "faker": "^5.5.3",
