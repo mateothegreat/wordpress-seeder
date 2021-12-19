@@ -23,7 +23,7 @@
         "faker"
     ],
     "bin": {
-        "seed": "./bin/seed"
+        "seed": "./bin/wordpress-seeder"
     },
     "dependencies": {
         "@types/commander": "^2.12.2",
