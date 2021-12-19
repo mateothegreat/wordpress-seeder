@@ -1,4 +1,30 @@
 {
+    "name": "wordpress-seeder",
+    "description": "Create fake data to seed wordpress sites using the REST API like a boss.",
+    "version": "0.0.0",
+    "author": {
+        "name": "Matthew Davis",
+        "email": "matthew@matthewdavis.io",
+        "url": "https://matthewdavis.io"
+    },
+    "repository": {
+        "url": "https://github.com/mateothegreat/wordpress-seeder.git",
+        "type": "git"
+    },
+    "bugs": {
+        "url": "https://github.com/mateothegreat/wordpress-seeder/issues"
+    },
+    "homepage": "https://github.com/mateothegreat/wordpress-seeder",
+    "license": "MIT",
+    "readme": "README.md",
+    "keywords": [
+        "wordpress",
+        "seeder",
+        "faker"
+    ],
+    "bin": {
+        "seed": "./bin/seed"
+    },
     "devDependencies": {
         "@types/commander": "^2.12.2",
         "@types/faker": "^5.5.9",
@@ -11,6 +37,7 @@
         "commander": "^8.3.0",
         "dotenv": "^10.0.0",
         "faker": "^5.5.3",
+        "ts-node": "^10.4.0",
         "wpapi": "^1.2.2"
     }
 }

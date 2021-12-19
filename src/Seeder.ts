@@ -6,18 +6,33 @@ import { Argument, Command, Option } from 'commander';
 export class Seeder {
 
     public cli = new Command();
+
+    private client: WPAPI;
     private categories: Array<{ id: number, name: string }> = [];
     private tags: Array<{ id: number, name: string }> = [];
 
     public constructor() {
 
-        this.cli.version('0.0.1').name('WordPress Seeder');
+        this.cli.version('0.0.1').name('🚀 WordPress Seeder').description('Creates fake data to seed wordpress sites using the REST API.');
+
+        this.cli
+            .addOption(new Option('-e, --endpoint <endpoint>', 'url to the rest api base (i.e.: https://domain.com/wp-json)'))
+            .addOption(new Option('-u, --username <username>', 'wordpress username'))
+            .addOption(new Option('-p, --password <password>', 'wordpress password'));
 
         this.cli
             .command('create').addArgument(new Argument('<type>', 'resource type').choices([ 'categories', 'comments', 'pages', 'posts', 'tags' ]))
             .addOption(new Option('-a, --amount <amount>', 'amount of records to create'))
             .description('create new resources of type specified')
             .action(async (type, options) => {
+
+                this.client = new WPAPI({
+
+                    endpoint: this.cli.opts().endpoint,
+                    username: this.cli.opts().username,
+                    password: this.cli.opts().password
+
+                });
 
                 if (type === 'categories') {
 
@@ -52,14 +67,6 @@ export class Seeder {
         this.cli.parse();
 
     }
-
-    private client = new WPAPI({
-
-        endpoint: process.env.ENDPOINT,
-        username: process.env.USERNAME,
-        password: process.env.PASSWORD
-
-    });
 
     public async getRandomCategories(amount: number): Promise<Array<{ id: number, name: string }>> {
 
@@ -100,7 +107,7 @@ export class Seeder {
 
                 });
 
-                console.log(`Created category ${ i }/${ amount } ${ result.name } (#${ result.id })`);
+                console.log(`Created category ${ i }/${ amount } ${ result.name } (#${ result.id }) ${ result.link }`);
 
             } catch (e) {
 
@@ -124,7 +131,7 @@ export class Seeder {
 
                 });
 
-                console.log(`Created tag ${ i }/${ amount } ${ result.name } (#${ result.id })`);
+                console.log(`Created tag ${ i }/${ amount } ${ result.name } (#${ result.id }) ${ result.link }`);
 
             } catch (e) {
 
@@ -147,7 +154,7 @@ export class Seeder {
 
                 const result = await this.client.pages().create({
 
-                    title: faker.lorem.paragraph(),
+                    title: faker.lorem.words(4),
                     except: faker.lorem.paragraph(),
                     content: faker.lorem.paragraphs(Utilities.getRandomNumberBetween(1, 100)),
                     categories: categories.map(category => category.id),
@@ -156,7 +163,7 @@ export class Seeder {
 
                 });
 
-                console.log(`Created page ${ i }/${ amount } ID #${ result.id }`);
+                console.log(`Created page ${ i }/${ amount } ID #${ result.id } ${ result.link }`);
 
             } catch (e) {
 
@@ -186,7 +193,7 @@ export class Seeder {
 
                 });
 
-                console.log(`Created post ${ i }/${ amount } ID #${ result.id }`);
+                console.log(`Created post ${ i }/${ amount } ID #${ result.id } ${ result.link }`);
 
             } catch (e) {
 
