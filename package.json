@@ -23,7 +23,7 @@
         "faker"
     ],
     "bin": {
-        "wordpress-seeder": "./dist/main.js"
+        "wordpress-seeder": "dist/main.js"
     },
     "dependencies": {
         "@types/commander": "^2.12.2",
