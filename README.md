@@ -12,7 +12,7 @@ Created page 2/2 ID #11110 https://yourdomain.com/aut-sunt-commodi-est/
 ## Install
 
 ```shell
-npm install -g @mateotehgreat/wordpress-seeder
+npm install -g wordpress-seeder
 ```
 
 ## Usage
