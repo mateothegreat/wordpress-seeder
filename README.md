@@ -1,6 +1,20 @@
-# Seed WordPress Data
+# Seed WordPress Data 🚀🚀🚀
 
 Create fake data to seed wordpress sites using the REST API like a boss.
+
+### 🦾 Features
+
+* Create unlimited categories.
+* Create unlimited comments.
+* Create unlimited pages:
+    * Adds comments.
+    * Adds random media file(s).
+* Create unlimited posts.
+    * Adds categories.
+    * Adds comments.
+    * Adds random media file(s).
+* Create unlimited tags.
+* Create unlimited media upload.
 
 ```sh
 $ wordpress-seeder --endpoint https://yourdomain.com/wp-json --username a --password b create --amount 2 pages

@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-
-node $0/../dist/main.js $@
