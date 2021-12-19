@@ -3,7 +3,7 @@
 Create fake data to seed wordpress sites using the REST API like a boss.
 
 ```sh
-$ seed --endpoint https://yourdomain.com/wp-json --username a --password b create --amount 2 pages
+$ wordpress-seeder --endpoint https://yourdomain.com/wp-json --username a --password b create --amount 2 pages
 
 Created page 1/2 ID #11109 https://yourdomain.com/delectus-repudiandae-in-animi/
 Created page 2/2 ID #11110 https://yourdomain.com/aut-sunt-commodi-est/
@@ -17,8 +17,10 @@ npm install -g wordpress-seeder
 
 ## Usage
 
+Global options:
+
 ```shell
-$seed --help
+$ wordpress-seeder --help
 
 Usage: 🚀 WordPress Seeder [options] [command]
 
@@ -34,6 +36,23 @@ Options:
 Commands:
   create [options] <type>    create new resources of type specified
   help [command]             display help for command
+```
+
+Create options:
+
+```shell
+$ wordpress-seeder create --help
+
+Usage: 🚀 WordPress Seeder create [options] <type>
+
+create new resources of type specified
+
+Arguments:
+  type                   resource type (choices: "categories", "comments", "pages", "posts", "tags")
+
+Options:
+  -a, --amount <amount>  amount of records to create
+  -h, --help             display help for command
 ```
 
 ## Development
