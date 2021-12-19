@@ -150,6 +150,7 @@ export class Seeder {
                     title: faker.lorem.paragraph(),
                     except: faker.lorem.paragraph(),
                     content: faker.lorem.paragraphs(Utilities.getRandomNumberBetween(1, 100)),
+                    categories: categories.map(category => category.id),
                     comment_status: 'open',
                     status: 'publish'
 

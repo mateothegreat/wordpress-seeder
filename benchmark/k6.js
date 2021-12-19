@@ -8,6 +8,7 @@ import http from 'k6/http';
 export let options = {
 
     insecureSkipTLSVerify: true,
+    httpDebug: 'full',
 
     ext: {
 
@@ -15,7 +16,7 @@ export let options = {
 
             projectID: 3564654,
             name: "gcp-wp-1"
-            
+
         }
 
     },
